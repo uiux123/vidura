@@ -11,10 +11,15 @@ app.use(express.json());
 
 app.use("/auth", authRoutes);
 
+
+app.get(["/auth", "/auth/"], (req, res) => {
+  res.send(" Auth Service Running");
+});
+
 app.get("/", (req, res) => {
-  res.send("✅ Auth Service Running");
+  res.send(" Auth Service Running");
 });
 
 app.listen(process.env.PORT, () => {
-  console.log(`✅ Auth Service running on port ${process.env.PORT}`);
+  console.log(`Auth Service running on port ${process.env.PORT}`);
 });

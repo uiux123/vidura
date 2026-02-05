@@ -1,3 +1,4 @@
+// cart/server.js
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -9,12 +10,27 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/cart", cartRoutes);
-
-app.get("/", (req, res) => {
-  res.send("✅ Cart Service Running");
+/* ============================
+   Health Check (for ALB/ECS)
+   ============================ */
+app.get("/health", (req, res) => {
+  res.status(200).send("✅ Cart Service Running");
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`✅ Cart Service running on port ${process.env.PORT}`);
+/* ============================
+   Main Cart API
+   ============================ */
+app.use("/cart", cartRoutes);
+
+/* ============================
+   Root (optional)
+   ============================ */
+app.get("/", (req, res) => {
+  res.send("Cart Service OK");
+});
+
+const PORT = process.env.PORT || 3003;
+
+app.listen(PORT, () => {
+  console.log(`✅ Cart Service running on port ${PORT}`);
 });
