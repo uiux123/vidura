@@ -1,0 +1,284 @@
+:root {
+  --primary: #2563eb;
+  --danger: #dc2626;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  font-family: Inter, system-ui, Arial, sans-serif;
+  color: var(--text);
+}
+
+/* ===== TOP BAR ===== */
+.topbar {
+  background: white;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+  margin: 0;
+  font-weight: 800;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e5e7eb;
+  color: #111827;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.danger {
+  background: var(--danger);
+  color: white;
+}
+
+.full {
+  width: 100%;
+}
+
+/* ===== LAYOUT ===== */
+.app {
+  min-height: 100vh;
+}
+
+.content {
+  padding: 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.page-title {
+  margin-bottom: 16px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+/* ===== PRODUCTS ===== */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-body h3 {
+  margin: 0 0 6px;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.description {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ===== CART & ORDERS ===== */
+.cart-item,
+.order-card {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  margin-bottom: 12px;
+}
+
+.checkout {
+  margin-top: 20px;
+}
+
+/* ===== FORMS ===== */
+.form-header {
+  margin-bottom: 16px;
+}
+
+.form-card {
+  background: var(--card);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+input,
+textarea {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-family: inherit;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* ===== TEXT ===== */
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* ===== AUTH PAGES (MODERN UI) ===== */
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #e0ecff, #f8fafc);
+}
+
+.auth-card {
+  background: var(--card);
+  width: 100%;
+  max-width: 420px;
+  padding: 36px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  animation: fadeIn 0.4s ease;
+}
+
+.auth-card h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.auth-card form {
+  margin-top: 20px;
+}
+
+.auth-card input {
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.auth-card input:focus {
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.auth-footer a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.success {
+  color: #16a34a;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* subtle animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
